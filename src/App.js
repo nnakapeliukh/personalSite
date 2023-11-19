@@ -1,22 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './elements/elements';
+import lalptopImage from './assets/lap2.png';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        < Header />
+        <div className='contentDiv'>
+          <span className='imageMainPage'>
+           <img src={lalptopImage} className="" alt="logo" />
+          </span>
+          <div className='rightSideDiv'>vasya
+            <p>
+              Finally, my website is online.<br/>
+              This is my first <a href="/weatherApp">WeatherApp</a><br/>
+              Fun game of <a href="/battleship/">Battleship</a>
+            </p>   
+          </div>     
+        </div>
+        
       </header>
     </div>
   );

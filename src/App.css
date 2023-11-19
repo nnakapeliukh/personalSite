@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(45deg, rgba(192,78,129,1) 0%, rgba(242,159,107,1) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,22 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-top: 100px;
+}
+
+.contentDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imageMainPage {
+  top: 10%;
+  flex-grow: 2;
+}
+
+.rightSideDiv {
+  flex-grow: 2;
 }
 
 .App-link {

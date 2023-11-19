@@ -1,4 +1,4 @@
-# My Personal Website Repo
+# Personal Website Repo
 
 Here is the code for my webiste running at [nazar.digital](http://nazar.digital).
 
