@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import Header from './elements/elements';
+import Menu from './elements/elements';
 import lalptopImage from './assets/lap2.png';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header />
         <div className="contentDiv">
+          <Menu />
           <span className="imageMainPage">
             <img src={lalptopImage} className="" alt="logo" />
           </span>

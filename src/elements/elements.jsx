@@ -1,11 +1,19 @@
 import React from 'react';
 import './elements.css';
 
-export default function Header() {
+export default function Menu() {
   return (
-    <div className="headerDiv">
+    <div className="collapsible-menu">
+      <input type="checkbox" id="menuID" />
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label htmlFor="menuID" />
       <div className="menu-content">
-        <p>About</p>
+        <ul>
+          <li>About</li>
+          <li>Portfolio</li>
+          <li>Option 1</li>
+          <li>Option 2</li>
+        </ul>
       </div>
     </div>
   );
