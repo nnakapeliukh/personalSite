@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Menu from './elements/elements';
+import AccountMenu from './elements/elements';
 import lalptopImage from './assets/lap2.png';
 
 function App() {
@@ -8,12 +8,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="contentDiv">
-          <Menu />
+          <AccountMenu />
           <span className="imageMainPage">
             <img src={lalptopImage} className="" alt="logo" />
           </span>
           <div className="rightSideDiv">
-            vasya
             <p>
               Finally, my website is online.
               <br />
