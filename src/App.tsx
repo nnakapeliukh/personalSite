@@ -5,6 +5,7 @@ import './App.css';
 import NavigationBar from './elements/navBar';
 import MainPage from './elements/mainPage';
 // import { Image } from 'react-bootstrap';
+import AboutMe from './elements/aboutMe';
 import AccountMenu from './elements/elements';
 import lalptopImage from './assets/lap2.png';
 
@@ -14,7 +15,7 @@ function App() {
       <header className="App-header">
         <NavigationBar />
         <MainPage />
-        <div className="contentDiv">
+        <AboutMe />
           <AccountMenu />
 
         {/* <div className="contentDiv">
