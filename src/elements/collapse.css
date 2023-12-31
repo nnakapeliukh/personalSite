@@ -1,0 +1,20 @@
+
+  .module .collapse, .module .collapsing {
+    height: 5rem;  /* [NUM_OF_LINES] x [LINE_HEIGHT] */
+  }
+  
+  .module .collapse {
+    position: relative;  /* For ...'s content absolute positioning */
+    display: block;
+    overflow: hidden;
+  }
+  
+  .module .collapse:before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .module .collapse.show {
+    height: auto;  /* You need to reset the height when not collapsed */
+  }
