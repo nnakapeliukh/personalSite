@@ -105,12 +105,12 @@ export default function AboutMe() {
           <Col xs={12} md={6}>
             <h3>About me</h3>
             <p className="lead">
-              Young and strong man, whoi is interested in everything tech. I
+              Hi, my name is Nazar and I&apos;m interested in everything tech. I
               have stong background in designing complex systems and executing
-              various parts: from UX design to PCB design. All of these things
-              are integrated to become a product. I know how to bring value:
-              during &apos;slower&apos; periouds I always try to find a way on
-              how to
+              various parts of the design: from UX design to PCB design. All of
+              these things are integrated to become a successful product. I know
+              how to bring value and I do so by finding areas that need
+              impovement and implement these changes.
             </p>
           </Col>
         </Row>
