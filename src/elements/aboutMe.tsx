@@ -43,7 +43,7 @@ const listOfSkills = [
 export default function AboutMe() {
   const [isSkillsCollapseOpen, setIsSkillsCollapseOpen] = useState(false);
   return (
-    <Container>
+    <Container id="about">
       <Container className="shadow mt-5 p-4">
         <Row className="">
           <Col xs={12} md={6}>

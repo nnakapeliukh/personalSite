@@ -15,6 +15,7 @@ function MainPage() {
         backgroundAttachment: "fixed",
         backgroundPosition: "50% 50%",
       }}
+      id="home"
     >
       <Container>
         <Row>

@@ -54,7 +54,7 @@ const listOfHighlights = [
 export default function Highlights() {
   return (
     <Container>
-      <Container className=" mt-5 mb-5 p-4">
+      <Container className=" mt-5 mb-5 p-4" id="highlights">
         <Row className="text-center">
           <h3 className="">Highlights</h3>
           {listOfHighlights.map((highlight) => (
