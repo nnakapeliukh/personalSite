@@ -1,14 +1,13 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import "./elements/highlights.css";
 // import lalptopImage from './assets/lap2.png';
-import NavigationBar from './elements/navBar';
-import MainPage from './elements/mainPage';
+import NavigationBar from "./elements/navBar";
+import MainPage from "./elements/mainPage";
 // import { Image } from 'react-bootstrap';
-import AboutMe from './elements/aboutMe';
-import AccountMenu from './elements/elements';
-import lalptopImage from './assets/lap2.png';
-
+import AboutMe from "./elements/aboutMe";
+import Highlights from "./elements/highlights";
 function App() {
   return (
     <div className="App">
@@ -16,7 +15,7 @@ function App() {
         <NavigationBar />
         <MainPage />
         <AboutMe />
-          <AccountMenu />
+        <Highlights />
 
         {/* <div className="contentDiv">
          

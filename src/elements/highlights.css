@@ -1,0 +1,7 @@
+.highlight-logo {
+  background-color: var(--bs-dark);
+}
+.highlight-container:hover .highlight-logo {
+  filter: invert(100%);
+  transition-duration: 0.4s;
+}
