@@ -11,32 +11,61 @@ import battleshipPic from "../assets/battleship.png";
 import battleshipIcon from "../assets/battleshipIcon.svg";
 import shoppingcartPic from "../assets/shoppingcart.png";
 import shoppingcartIcon from "../assets/shoppingcartLogo.svg";
+import notResponsiveIcon from "../assets/notResponsive.svg";
+import memcardPic from "../assets/memcardPic.png";
+import memcardLogo from "../assets/memcardLogo.svg";
+import companyPic from "../assets/companyWebsite.png";
+import companyLogo from "../assets/companyLogo.svg";
 const listOfProjects = [
+  {
+    name: "Memory Game",
+    link: "/memcard",
+    description:
+      "Part of The Odin Project course. Challenge your memory \
+      and set a new highscore. A game where you have NOT to\
+      select the same card twice. Set in the world of MTG",
+    image: memcardPic,
+    logo: memcardLogo,
+    notResponsive: false,
+  },
+  {
+    name: "Company Website",
+    link: "http://webtesting.dticanada.com/",
+    description: "Company's website using Wordpress.",
+    image: companyPic,
+    logo: companyLogo,
+    notResponsive: false,
+  },
   {
     name: "Weather App",
     link: "/weatherapp",
     description:
-      "This page uses API to fetch data from weather data bank \
+      "Part of The Odin Project course. This page uses API to fetch data from weather data bank \
     and image from image stock depending on weather",
     image: wetherAppPic,
     logo: weatherLogo,
+    notResponsive: true,
   },
   {
     name: "Battleship",
     link: "/battleship",
-    description: "Good old Battleship game. Written in pure JavaScript.",
+    description:
+      "Part of The Odin Project course. Good old Battleship game.\
+     Written in pure JavaScript.",
     image: battleshipPic,
     logo: battleshipIcon,
+    notResponsive: true,
   },
   {
     name: "Shopping Cart",
     link: "/shoppingcart",
     description:
-      "A little shop that uses external API to get \
+      "Part of The Odin Project course. A little shop that uses external API to get \
     store items. Implements shopping cart that saves items you buy \
     and calculates the total",
     image: shoppingcartPic,
     logo: shoppingcartIcon,
+    notResponsive: true,
   },
 ];
 
@@ -72,6 +101,13 @@ export default function Projects() {
                   />
                   <h4 className="m-2 bg-dark text-white rounded-3">
                     {project.name}
+                    {project.notResponsive ? (
+                      <Image
+                        src={notResponsiveIcon}
+                        width={"25px"}
+                        className="mx-2 my-1"
+                      />
+                    ) : null}
                   </h4>
                   <p className="m-2 bg-dark text-white rounded-3">
                     {project.description}
