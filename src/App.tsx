@@ -7,6 +7,7 @@ import NavigationBar from "./elements/navBar";
 import MainPage from "./elements/mainPage";
 import AboutMe from "./elements/aboutMe";
 import Highlights from "./elements/highlights";
+import Projects from "./elements/projects";
 import { Helmet } from "react-helmet";
 import nazarLogo from "./assets/nazarLogo.png";
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <MainPage />
         <AboutMe />
         <Highlights />
-
+        <Projects />
         {/* <div className="contentDiv">
          
           <span className="imageMainPage">
