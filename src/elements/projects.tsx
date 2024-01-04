@@ -14,7 +14,7 @@ import shoppingcartIcon from "../assets/shoppingcartLogo.svg";
 const listOfProjects = [
   {
     name: "Weather App",
-    link: "/weatherApp",
+    link: "/weatherapp",
     description:
       "This page uses API to fetch data from weather data bank \
     and image from image stock depending on weather",
@@ -53,7 +53,7 @@ export default function Projects() {
               key={project.name}
               className=" mt-4 highlight-container pb-1"
             >
-              <a href="/weatherApp" className="link-opacity-10">
+              <a href={project.link} className="link-opacity-10">
                 <Container
                   className="mt-1 shadow h-100 rounded-3"
                   style={{

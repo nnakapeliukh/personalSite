@@ -29,7 +29,7 @@ const listOfSkills = [
   { name: "Electron" },
   { name: "Jest" },
   { name: "Bootstrap" },
-  { name: "Express.js" },
+  { name: "nginx" },
   { name: "AWS" },
   { name: "C" },
   { name: "AHK" },
