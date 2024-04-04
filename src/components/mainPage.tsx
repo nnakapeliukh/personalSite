@@ -100,7 +100,6 @@ function MainPage() {
                     }}
                     className="display-2 fw-bold  text-center px-1 my-0 py-0"
                   >
-                    Hi, I&apos;m Nazar
                   </p>
                   <p
                     style={{
@@ -112,8 +111,6 @@ function MainPage() {
                     }}
                     className="display-6 align-left text-center py-2"
                   >
-                    and I thrive on challenge
-                  </p>
                 </div>
               </Container>
             </Col>

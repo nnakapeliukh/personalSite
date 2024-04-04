@@ -1,13 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "./elements/highlights.css";
+import "./components/highlights.css";
 // import lalptopImage from './assets/lap2.png';
-import NavigationBar from "./elements/navBar";
-import MainPage from "./elements/mainPage";
-import AboutMe from "./elements/aboutMe";
-import Highlights from "./elements/highlights";
-import Projects from "./elements/projects";
+import NavigationBar from "./components/navBar";
+import MainPage from "./components/mainPage";
+import AboutMe from "./components/aboutMe";
+import Highlights from "./components/highlights";
+import Projects from "./components/projects";
 import { Helmet } from "react-helmet";
 import nazarLogo from "./assets/nazarLogo.png";
 function App() {
