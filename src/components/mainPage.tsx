@@ -2,7 +2,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import React from "react";
-import mountainBgd from "../assets/mountainEnhanced.jpg";
+import mountainBgd from "../assets/mountainEnhancedColor.jpg";
+import transFont from "../assets/trans-font.png";
 import cloudsBgd from "../assets/clouds.png";
 import cloudsBgd2 from "../assets/clouds2.png";
 import cloudsBgd3 from "../assets/clouds3.png";
@@ -17,13 +18,28 @@ function MainPage() {
           backgroundImage: `url(${mountainBgd})`,
           height: "100vh",
           width: "100%",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: "scroll",
+          // backgroundAttachment: "fixed",
           backgroundPosition: "50% 50%",
           backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
         id="home"
       >
-        {/* Animated clouds */}
+        <div
+          className="hero route bg-image min-vw-100 p-0 m-0"
+          style={{
+            backgroundImage: `url(${transFont})`,
+            height: "100vh",
+            width: "100vw",
+            backgroundAttachment: "fixed",
+            backgroundPosition: "50% 50%",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            position: "absolute",
+            zIndex: " 0",
+          }}
+        />
         <div
           className="hero route bg-image min-vw-100 p-0 m-0 animate1"
           style={{
@@ -33,6 +49,7 @@ function MainPage() {
             backgroundAttachment: "fixed",
             backgroundPosition: "50% 50%",
             backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
             position: "absolute",
             zIndex: " 0",
           }}
@@ -46,6 +63,7 @@ function MainPage() {
             backgroundAttachment: "fixed",
             backgroundPosition: "50% 50%",
             backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
             position: "absolute",
             zIndex: " 0",
           }}
@@ -59,11 +77,11 @@ function MainPage() {
             backgroundAttachment: "fixed",
             backgroundPosition: "50% 50%",
             backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
             position: "absolute",
             zIndex: " 0",
           }}
         />
-
         <Container>
           <Row>
             <Col
@@ -100,6 +118,8 @@ function MainPage() {
                     }}
                     className="display-2 fw-bold  text-center px-1 my-0 py-0"
                   >
+                    {/* Hi, I&apos;m Nazar */}
+                    {/* Your&apos;s is the Earth, */}
                   </p>
                   <p
                     style={{
@@ -111,6 +131,9 @@ function MainPage() {
                     }}
                     className="display-6 align-left text-center py-2"
                   >
+                    {/* and I thrive on challenge */}
+                    {/* and everything that&apos;s in it */}
+                  </p>
                 </div>
               </Container>
             </Col>

@@ -21,6 +21,8 @@ function clickToSeeEmail(e: React.MouseEvent<HTMLButtonElement>) {
 
 // make it array of objects that can have more info added as needed
 const listOfSkills = [
+  { name: "Full-stack" },
+  { name: "Back-end" },
   { name: "TypeScript" },
   { name: "JavaScript" },
   { name: "Python" },
@@ -36,7 +38,6 @@ const listOfSkills = [
   { name: "Linux" },
   { name: "MongoDB" },
   { name: "NoSQL" },
-  { name: "Webdesign" },
   { name: "And more..." },
 ];
 
@@ -106,11 +107,8 @@ export default function AboutMe() {
             <h3>About me</h3>
             <p className="lead">
               Hi, my name is Nazar and I&apos;m interested in everything tech. I
-              have stong background in designing complex systems and executing
-              various parts of the design: from UX design to PCB design. All of
-              these things are integrated to become a successful product. I know
-              how to bring value and I do so by finding areas that need
-              impovement and implement these changes.
+              like building complex systems. Running, hiking and Brazilian
+              jiu-jitsu help me staying focused.
             </p>
           </Col>
         </Row>
