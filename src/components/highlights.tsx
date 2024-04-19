@@ -56,7 +56,7 @@ export default function Highlights() {
     <Container>
       <Container className=" mt-5 mb-5 p-4" id="highlights">
         <Row className="text-center">
-          <h3 className="">Highlights</h3>
+          <h3 className="">About This Website</h3>
           {listOfHighlights.map((highlight) => (
             <Col
               xs={12}

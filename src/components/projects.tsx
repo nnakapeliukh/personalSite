@@ -14,8 +14,6 @@ import shoppingcartIcon from "../assets/shoppingcartLogo.svg";
 import notResponsiveIcon from "../assets/notResponsive.svg";
 import memcardPic from "../assets/memcardPic.png";
 import memcardLogo from "../assets/memcardLogo.svg";
-import companyPic from "../assets/companyWebsite.png";
-import companyLogo from "../assets/companyLogo.svg";
 const listOfProjects = [
   {
     name: "Memory Game",
@@ -26,14 +24,6 @@ const listOfProjects = [
       select the same card twice. Set in the world of MTG",
     image: memcardPic,
     logo: memcardLogo,
-    notResponsive: false,
-  },
-  {
-    name: "Company Website",
-    link: "http://webtesting.dticanada.com/",
-    description: "Company's website using Wordpress.",
-    image: companyPic,
-    logo: companyLogo,
     notResponsive: false,
   },
   {

@@ -21,6 +21,12 @@ function clickToSeeEmail(e: React.MouseEvent<HTMLButtonElement>) {
 
 // make it array of objects that can have more info added as needed
 const listOfSkills = [
+  { name: "Full-stack Embedded" },
+  { name: "C/C++" },
+  { name: "Linux" },
+  { name: "Firmware" },
+  { name: "ARM" },
+  { name: "PCB design" },
   { name: "Full-stack" },
   { name: "Back-end" },
   { name: "TypeScript" },
@@ -59,8 +65,8 @@ export default function AboutMe() {
               <Col xs={12} lg={7} className="">
                 <p className="lh-lg text-center lead bold">
                   Nazar Nakapeliukh <br />
-                  Electrical Engineer <br />
-                  Full Stack Developer <br />
+                  Software/Hardware <br />
+                  Engineering <br />
                 </p>
                 <Button
                   onClick={clickToSeeEmail}
