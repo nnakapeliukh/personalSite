@@ -5,7 +5,8 @@ import nazarLogo from "./../assets/nazarLogo.png";
 import githubLogo from "./../assets/github-mark-white.svg";
 import linmkedInLogo from "./../assets/In-White-26.png";
 import { Image, Nav } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 function NavigationBar() {
   return (
@@ -34,12 +35,12 @@ function NavigationBar() {
             id="responsive-navbar-nav"
             className="justify-content-end"
           >
-            <Nav>
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#about">About me</Nav.Link>
-              <Nav.Link href="#highlights">Highlights</Nav.Link>
-              <Nav.Link href="#projects">Projects</Nav.Link>
-              
+            <div className="nav">
+              <HashLink className="nav-link" to={"/#home"}>Home </HashLink> 
+              <HashLink className="nav-link" to={"/#about"}>About Me </HashLink> 
+              <HashLink className="nav-link" to={"/#highlights"}>Highlights </HashLink> 
+              <HashLink className="nav-link" to={"/#projects"}>Home </HashLink> 
+              <Link className="nav-link" to={"signin"}>Sign In </Link>
               {/* <NavDropdown title="More" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#resume">
                   More to come...
@@ -53,7 +54,7 @@ function NavigationBar() {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#">More to come...</NavDropdown.Item>
               </NavDropdown> */}
-            </Nav>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
