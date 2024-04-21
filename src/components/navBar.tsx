@@ -7,6 +7,7 @@ import linmkedInLogo from "./../assets/In-White-26.png";
 import { Image, Nav } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
+import { Helmet } from "react-helmet";
 
 function NavigationBar() {
   return (
@@ -81,7 +82,17 @@ function NavigationBar() {
           <small>2024</small>
         </Nav.Item>
       </Navbar>
+
+      <div className="App">
+      <header className="App-header">
+        <Helmet>
+          <title> Nazar&apos;s Webpage</title>
+          <link rel="icon" type="image/png" href={nazarLogo} sizes="16x16" />
+        </Helmet>
       <Outlet />
+
+      </header>
+    </div>
     </>
   );
 }
