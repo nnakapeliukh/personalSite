@@ -7,9 +7,9 @@ import transFont from "../assets/trans-font.png";
 import cloudsBgd from "../assets/clouds.png";
 import cloudsBgd2 from "../assets/clouds2.png";
 import cloudsBgd3 from "../assets/clouds3.png";
-import "./mainPage.css";
+import "./heroContent.css";
 
-function MainPage() {
+function HeroContent() {
   return (
     <>
       <Container
@@ -147,4 +147,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default HeroContent;

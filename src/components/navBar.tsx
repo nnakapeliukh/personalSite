@@ -5,6 +5,7 @@ import nazarLogo from "./../assets/nazarLogo.png";
 import githubLogo from "./../assets/github-mark-white.svg";
 import linmkedInLogo from "./../assets/In-White-26.png";
 import { Image, Nav } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 
 function NavigationBar() {
   return (
@@ -38,6 +39,7 @@ function NavigationBar() {
               <Nav.Link href="#about">About me</Nav.Link>
               <Nav.Link href="#highlights">Highlights</Nav.Link>
               <Nav.Link href="#projects">Projects</Nav.Link>
+              
               {/* <NavDropdown title="More" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#resume">
                   More to come...
@@ -78,6 +80,7 @@ function NavigationBar() {
           <small>2024</small>
         </Nav.Item>
       </Navbar>
+      <Outlet />
     </>
   );
 }
