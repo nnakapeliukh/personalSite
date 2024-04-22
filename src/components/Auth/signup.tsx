@@ -3,22 +3,22 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import * as formik from "formik";
 import * as yup from "yup";
 
 function SignUp() {
   const { Formik } = formik;
-
+  const [errorMessage, setErrorMessage] = useState([""]);
   const schema = yup.object().shape({
     firstName: yup.string().required().min(3),
     lastName: yup.string().required().min(3),
     username: yup.string().required().min(5),
-    email: yup.string().required(),
+    email: yup.string().email().required(),
     password: yup.string().required().min(6),
     city: yup.string().required(),
     terms: yup.bool().required().oneOf([true], "Terms must be accepted"),
@@ -34,16 +34,17 @@ function SignUp() {
             validationSchema={schema}
             onSubmit={async (data) => {
               console.log(data);
-              // console.log("adding ", fname);
               try {
                 const response = await axios.post(
                   "http://localhost:3060/api/users",
                   data
                 );
-
                 console.log(response);
-              } catch (error) {
-                console.log(error);
+              } catch (e) {
+                const error = e as AxiosError;
+                console.log(error.response?.data);
+                const errorMessage = error.response?.data as Array<string>;
+                setErrorMessage(errorMessage);
               }
             }}
             initialValues={{
@@ -168,6 +169,8 @@ function SignUp() {
               </Form>
             )}
           </Formik>
+          {/* print error messages */}
+          {errorMessage.map(mes=><p className="text-danger" key={mes}>{mes}</p>)}
         </Col>
       </Row>
     </Container>
