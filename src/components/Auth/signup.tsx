@@ -3,15 +3,20 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 import * as formik from "formik";
 import * as yup from "yup";
 
 function SignUp() {
+  const navigate = useNavigate();
+  const [regSuccess, setRegSuccess] = useState(false);
+  useEffect(() => {
+    if (regSuccess) navigate("/signin");
+  }, [regSuccess]);
   const { Formik } = formik;
   const [errorMessage, setErrorMessage] = useState([""]);
   const schema = yup.object().shape({
@@ -40,8 +45,10 @@ function SignUp() {
                   "http://localhost:3060/api/users",
                   data
                 );
-                console.log(response);
+                console.log("success", response);
+
                 setErrorMessage([""]);
+                setRegSuccess(true);
               } catch (e) {
                 const error = e as AxiosError;
                 const errorMessage = error.response?.data as Array<string>;
