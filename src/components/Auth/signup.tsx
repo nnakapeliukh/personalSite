@@ -166,7 +166,7 @@ function SignUp() {
                     id="validationFormik0"
                   />
                 </Form.Group>
-                <Button type="submit">Submit form</Button>
+                <Button type="submit">Sign Up</Button>
               </Form>
             )}
           </Formik>
