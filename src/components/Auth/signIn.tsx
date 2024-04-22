@@ -1,39 +1,60 @@
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
 import axios, { AxiosError } from "axios";
 import * as formik from "formik";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { setFirstName } from "../../features/users/userSlice";
+
+
 
 function SignIn() {
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (loginSuccess){
+    setLoginSuccess(false);
+    axios.get("http://localhost:3060/api/users/").then((response) => {
+      console.log(response.data);
+      dispatch(setFirstName(response.data.firstName));
+    }).catch(e=>console.log(e));
+  }
+    if (loginSuccess) navigate("/cabinet");
+  }, [loginSuccess]);
+
   const { Formik } = formik;
   const [errorMessage, setErrorMessage] = useState([""]);
   const schema = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().required(),
   });
+
   return (
     <Container fluid="sm" className="shadow mt-5 p-4 s">
       <Row className="justify-content-center">
         <Col md={6}>
-          <h2 className="mb-4">Register New User</h2>
+          <h2 className="mb-4">Sign In</h2>
           <h4 className="mb-4">Token-based authentication</h4>
 
           <Formik
             validationSchema={schema}
             onSubmit={async (data) => {
-              console.log(data);
               try {
                 const response = await axios.post(
-                  "http://localhost:3060/api/users",
+                  "http://localhost:3060/api/users/login",
                   data
                 );
-                console.log(response);
+                axios.defaults.headers.common["Authorization"] =
+                  `Bearer ${response.data.token}`;
                 setErrorMessage([""]);
+                setLoginSuccess(true);
               } catch (e) {
                 const error = e as AxiosError;
                 const errorMessage = error.response?.data as Array<string>;
@@ -41,13 +62,8 @@ function SignIn() {
               }
             }}
             initialValues={{
-              firstName: "",
-              lastName: "",
-              username: "",
               email: "",
               password: "",
-              city: "",
-              terms: false,
             }}
           >
             {({ handleSubmit, handleChange, values, errors }) => (
@@ -81,7 +97,9 @@ function SignIn() {
                     {errors.password}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Button className="mt-4" type="submit">Login</Button>
+                <Button className="mt-4" type="submit">
+                  Login
+                </Button>
                 <Link className="nav-link mt-4 text-primary" to={"../signup"}>
                   Sign Up{" "}
                 </Link>

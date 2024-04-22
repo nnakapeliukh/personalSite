@@ -10,6 +10,7 @@ import SignIn from "./components/Auth/signIn";
 import 'bootstrap/dist/css/bootstrap.css';
 import SignUp from "./components/Auth/signup";
 import Terms from "./components/Auth/terms";
+import Cabinet from "./components/Cabinet/cabinet"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="signin" element={<SignIn />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="terms" element={<Terms />} />
+        <Route path="cabinet" element={<Cabinet />} />
         <Route path="*" element={<NoPage />} />
       </Route>
     </Routes>
