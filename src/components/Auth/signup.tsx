@@ -29,6 +29,7 @@ function SignUp() {
       <Row className="justify-content-center">
         <Col md={6}>
           <h2 className="mb-4">Register New User</h2>
+          <h4 className="mb-4">With clientside and serverside validation</h4>
 
           <Formik
             validationSchema={schema}
@@ -40,9 +41,9 @@ function SignUp() {
                   data
                 );
                 console.log(response);
+                setErrorMessage([""]);
               } catch (e) {
                 const error = e as AxiosError;
-                console.log(error.response?.data);
                 const errorMessage = error.response?.data as Array<string>;
                 setErrorMessage(errorMessage);
               }
@@ -170,7 +171,13 @@ function SignUp() {
             )}
           </Formik>
           {/* print error messages */}
-          {errorMessage.map(mes=><p className="text-danger" key={mes}>{mes}</p>)}
+          {Array.isArray(errorMessage)
+            ? errorMessage?.map((mes) => (
+                <p className="text-danger" key={mes}>
+                  {mes}
+                </p>
+              ))
+            : ""}
         </Col>
       </Row>
     </Container>
