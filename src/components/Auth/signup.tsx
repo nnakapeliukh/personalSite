@@ -14,11 +14,15 @@ import * as yup from "yup";
 function SignUp() {
   const navigate = useNavigate();
   const [regSuccess, setRegSuccess] = useState(false);
+
+  // redirect after successful sign up
   useEffect(() => {
     if (regSuccess) navigate("/signin");
   }, [regSuccess]);
   const { Formik } = formik;
+  
   const [errorMessage, setErrorMessage] = useState([""]);
+
   const schema = yup.object().shape({
     firstName: yup.string().required().min(3),
     lastName: yup.string().required().min(3),

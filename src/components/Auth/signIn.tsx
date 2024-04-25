@@ -10,22 +10,29 @@ import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import { setFirstName } from "../../features/users/userSlice";
-
-
+import { setUserData } from "../../features/users/userSlice";
 
 function SignIn() {
   const [loginSuccess, setLoginSuccess] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
-    if (loginSuccess){
-    setLoginSuccess(false);
-    axios.get("http://localhost:3060/api/users/").then((response) => {
-      console.log(response.data);
-      dispatch(setFirstName(response.data.firstName));
-    }).catch(e=>console.log(e));
-  }
+    if (loginSuccess) {
+      setLoginSuccess(false);
+      axios
+        .get("http://localhost:3060/api/users/")
+        .then((response) => {
+          dispatch(
+            setUserData({
+              userName: response.data.userName,
+              firstName: response.data.firstName,
+              lastName: response.data.lastName,
+              city: response.data.city
+            })
+          );
+        })
+        .catch((e) => console.log(e));
+    }
     if (loginSuccess) navigate("/cabinet");
   }, [loginSuccess]);
 
@@ -53,6 +60,7 @@ function SignIn() {
                 );
                 axios.defaults.headers.common["Authorization"] =
                   `Bearer ${response.data.token}`;
+                  localStorage.setItem("token", response.data.token)
                 setErrorMessage([""]);
                 setLoginSuccess(true);
               } catch (e) {
