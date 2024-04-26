@@ -2,12 +2,13 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../../features/users/userSlice";
 
-export function Authorize(token: string) {
-
-  axios.defaults.headers.common["Authorization"] =
+export function Authorize() {
+  const dispatch = useDispatch();
+  const token = localStorage.token;
+  if (token){
+    axios.defaults.headers.common["Authorization"] =
     `Bearer ${token}`;
 
-  const dispatch = useDispatch();
 
   axios
     .get("http://localhost:3060/api/users/")
@@ -23,4 +24,6 @@ export function Authorize(token: string) {
       console.log(response);
     })
     .catch((e) => console.log(e));
+  }
+ 
 }

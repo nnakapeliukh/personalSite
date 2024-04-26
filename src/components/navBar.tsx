@@ -14,13 +14,11 @@ import { Authorize } from "./Auth/authorize";
 import axios from "axios";
 
 function NavigationBar() {
-  // get authorized if token available and user data not present
-  const userData = useSelector(selectUserData);
-  console.log(userData, localStorage.token);
+  // get authorized if token available
+  Authorize();
 
-  if (localStorage.token && userData.userName === "") {
-    Authorize(localStorage.token);
-  }
+  const userData = useSelector(selectUserData);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
