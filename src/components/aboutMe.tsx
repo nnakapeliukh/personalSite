@@ -41,7 +41,6 @@ const listOfSkills = [
   { name: "AWS" },
   { name: "C" },
   { name: "AHK" },
-  { name: "Linux" },
   { name: "MongoDB" },
   { name: "NoSQL" },
   { name: "And more..." },
