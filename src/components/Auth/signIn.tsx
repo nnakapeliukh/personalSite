@@ -27,7 +27,7 @@ function SignIn() {
               userName: response.data.userName,
               firstName: response.data.firstName,
               lastName: response.data.lastName,
-              city: response.data.city
+              city: response.data.city,
             })
           );
         })
@@ -54,13 +54,17 @@ function SignIn() {
             validationSchema={schema}
             onSubmit={async (data) => {
               try {
+                // get authorized
                 const response = await axios.post(
                   "http://localhost:3060/api/users/login",
                   data
                 );
                 axios.defaults.headers.common["Authorization"] =
                   `Bearer ${response.data.token}`;
-                  localStorage.setItem("token", response.data.token)
+
+                // store the token
+                localStorage.setItem("token", response.data.token);
+                // clear errors
                 setErrorMessage([""]);
                 setLoginSuccess(true);
               } catch (e) {

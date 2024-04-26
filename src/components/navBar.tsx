@@ -4,12 +4,39 @@ import React from "react";
 import nazarLogo from "./../assets/nazarLogo.png";
 import githubLogo from "./../assets/github-mark-white.svg";
 import linmkedInLogo from "./../assets/In-White-26.png";
-import { Image, Nav } from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
+import { Button, Image, Nav } from "react-bootstrap";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { Helmet } from "react-helmet";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserData, setUserData } from "../features/users/userSlice";
+import { Authorize } from "./Auth/authorize";
+import axios from "axios";
 
 function NavigationBar() {
+  // get authorized if token available and user data not present
+  const userData = useSelector(selectUserData);
+  console.log(userData, localStorage.token);
+
+  if (localStorage.token && userData.userName === "") {
+    Authorize(localStorage.token);
+  }
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  function Signout() {
+    axios.defaults.headers.common["Authorization"] = "";
+
+    dispatch(
+      setUserData({
+        userName: "",
+        firstName: "",
+        lastName: "",
+        city: "",
+      })
+    );
+    localStorage.removeItem("token");
+  }
   return (
     <>
       <Navbar
@@ -37,11 +64,40 @@ function NavigationBar() {
             className="justify-content-end"
           >
             <div className="nav">
-              <HashLink className="nav-link" to={"/#home"}>Home </HashLink> 
-              <HashLink className="nav-link" to={"/#about"}>About Me </HashLink> 
-              <HashLink className="nav-link" to={"/#highlights"}>Highlights </HashLink> 
-              <HashLink className="nav-link" to={"/#projects"}>Home </HashLink> 
-              <Link className="nav-link" to={"signin"}>Sign In </Link>
+              <HashLink className="nav-link" to={"/#home"}>
+                Home{" "}
+              </HashLink>
+              <HashLink className="nav-link" to={"/#about"}>
+                About Me{" "}
+              </HashLink>
+              <HashLink className="nav-link" to={"/#highlights"}>
+                Highlights{" "}
+              </HashLink>
+              <HashLink className="nav-link" to={"/#projects"}>
+                Projects{" "}
+              </HashLink>
+              {userData.userName === "" ? (
+                <Link className="nav-link" to={"signin"}>
+                  Sign In{" "}
+                </Link>
+              ) : (
+                <>
+                  <Link className="nav-link" to={"cabinet"}>
+                    Hello, {userData.userName}{" "}
+                  </Link>
+                  <Button
+                    type="button"
+                    className="btn btn-link"
+                    onClick={() => {
+                      Signout();
+                      navigate("/");
+                    }}
+                  >
+                    Sign Out
+                  </Button>
+                </>
+              )}
+
               {/* <NavDropdown title="More" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#resume">
                   More to come...
@@ -84,15 +140,14 @@ function NavigationBar() {
       </Navbar>
 
       <div className="App">
-      <header className="App-header">
-        <Helmet>
-          <title> Nazar&apos;s Webpage</title>
-          <link rel="icon" type="image/png" href={nazarLogo} sizes="16x16" />
-        </Helmet>
-      <Outlet />
-
-      </header>
-    </div>
+        <header className="App-header">
+          <Helmet>
+            <title> Nazar&apos;s Webpage</title>
+            <link rel="icon" type="image/png" href={nazarLogo} sizes="16x16" />
+          </Helmet>
+          <Outlet />
+        </header>
+      </div>
     </>
   );
 }
