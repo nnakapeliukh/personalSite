@@ -34,8 +34,8 @@ export default function Cabinet() {
         <Col md={6}>
           <h2 className="mb-4">Cabinet</h2>
           <p className="alert alert-light">
-            This page get user data from redux state management, uses axios to
-            fetch/post data and Formik for forms and yup for validation. All
+            This page gets user data from redux state management, uses axios to
+            fetch/post data, Formik to manage forms and yup for validation. All
             data is stored on the backend in MongoDB.
           </p>
           <Formik
