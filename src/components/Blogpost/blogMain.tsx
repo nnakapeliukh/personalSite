@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 // // import axios, { AxiosError } from "axios";
 // import * as formik from "formik";
@@ -8,6 +8,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { selectUserData } from "../../features/users/userSlice";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function BlogMain() {
   // get user data from redux
@@ -23,6 +24,19 @@ export default function BlogMain() {
           <Link className="btn btn-info my-4" to={"create"}>
             Create New Post{" "}
           </Link>
+          <Button onClick={async ()=>{
+            const resp = await axios.post(
+              "http://localhost:3060/api/blog/create"              
+            );
+            console.log(resp);
+          }}>Create generic post</Button>
+          
+          <Button onClick={async ()=>{
+            const resp = await axios.get(
+              "http://localhost:3060/api/blog"              
+            );
+            console.log(resp);
+          }}>Get</Button>
           <p className="alert alert-light">
             The purpose of the blog is to have a reminder and a quick reference
             on some of the things that I work on.
