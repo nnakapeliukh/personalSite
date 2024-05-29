@@ -95,6 +95,9 @@ function NavigationBar() {
                   </Button>
                 </>
               )}
+              <Link className="nav-link" to={"blog"}>
+                  Blog{" "}
+                </Link>
 
               {/* <NavDropdown title="More" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#resume">

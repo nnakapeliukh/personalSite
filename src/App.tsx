@@ -11,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import SignUp from "./components/Auth/signup";
 import Terms from "./components/Auth/terms";
 import Cabinet from "./components/Cabinet/cabinet"
+import BlogMain from "./components/Blogpost/blogMain";
+import BlogpostCreate from "./components/Blogpost/blogpostCreate";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="signup" element={<SignUp />} />
         <Route path="terms" element={<Terms />} />
         <Route path="cabinet" element={<Cabinet />} />
+        <Route path="blog" element={<BlogMain />} />
+        <Route path="blog/create" element={<BlogpostCreate />} />
         <Route path="*" element={<NoPage />} />
       </Route>
     </Routes>
