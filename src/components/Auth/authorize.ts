@@ -21,9 +21,11 @@ export function Authorize() {
           city: response.data.city,
         })
       );
-      console.log(response);
     })
-    .catch((e) => console.log(e));
+    .catch(() => {
+      // silent catch on auth fail
+    }
+    );
   }
  
 }

@@ -31,7 +31,7 @@ function SignIn() {
             })
           );
         })
-        .catch((e) => console.log(e));
+        .catch((e) => console.log("get user data on login success", e));
     }
     if (loginSuccess) navigate("/cabinet");
   }, [loginSuccess]);
