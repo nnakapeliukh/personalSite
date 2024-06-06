@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
 // // import axios, { AxiosError } from "axios";
@@ -19,14 +19,14 @@ interface postPreview {
 }
 
 export default function BlogMain() {
-  const posts = useRef<Array<postPreview> | undefined>(undefined);
+  const [posts, setPosts] = useState<Array<postPreview> | undefined>(undefined);
 
   useEffect(() => {
     axios
       .get("http://localhost:3060/api/blog")
       .then((res) => {
-        posts.current = res.data;
-        console.log("response for get blog posts", posts.current);
+        setPosts(res.data);
+        console.log("response for get blog posts", posts);
       })
       .catch((e) => {
         console.log(e);
@@ -64,7 +64,7 @@ export default function BlogMain() {
             The purpose of the blog is to have a reminder and a quick reference
             on some of the things that I worked on.
           </p>
-          {posts.current?.map((post, index) => {
+          {posts?.map((post, index) => {
             return (
               <Container key={"postContainer" + index} className="bg-light rounded ">
                 <h3 key={post.title+index}>{post.title}</h3>
