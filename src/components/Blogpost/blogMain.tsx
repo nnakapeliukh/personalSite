@@ -16,6 +16,7 @@ interface postPreview {
   post_date: Date;
   tags: Array<string>;
   user_name: string;
+  id: string;
 }
 
 export default function BlogMain() {
@@ -31,7 +32,6 @@ export default function BlogMain() {
       .catch((e) => {
         console.log(e);
       });
-
   }, []);
 
   return (
@@ -44,10 +44,9 @@ export default function BlogMain() {
               <Link className="btn btn-info my-4" to={"create"}>
                 Create New Post{" "}
               </Link>
-              
             </>
           ) : null}
-          
+
           <p className="alert alert-light">
             The purpose of the blog is to have a reminder and a quick reference
             on some of the things that I worked on.
@@ -58,11 +57,20 @@ export default function BlogMain() {
                 key={"postContainer" + index}
                 className="bg-light rounded my-3"
               >
-                <h3 key={post.title + index}>{post.title}</h3>
+                <Link
+                  className="link-dark link-underline link-underline-opacity-0 
+                  link-underline-opacity-75-hover"
+                  to="post"
+                  state={post.id}
+                >
+                  <h3 key={post.title + index}>{post.title}</h3>
+                </Link>
                 <p key={"postDesckey" + index}>{post.description}</p>
                 <>
-                <p className="m-0 text-end">{post.user_name}</p>
-                <p className="m-0 text-end">{new Date(post.post_date).toDateString()}</p>
+                  <p className="m-0 text-end">{post.user_name}</p>
+                  <p className="m-0 text-end">
+                    {new Date(post.post_date).toDateString()}
+                  </p>
                 </>
               </Container>
             );
