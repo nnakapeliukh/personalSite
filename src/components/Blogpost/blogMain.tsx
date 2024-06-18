@@ -27,7 +27,6 @@ export default function BlogMain() {
       .get("http://localhost:3060/api/blog")
       .then((res) => {
         setPosts(res.data);
-        console.log("response for get blog posts", posts);
       })
       .catch((e) => {
         console.log(e);
@@ -57,10 +56,14 @@ export default function BlogMain() {
             return (
               <Container
                 key={"postContainer" + index}
-                className="bg-light rounded "
+                className="bg-light rounded my-3"
               >
                 <h3 key={post.title + index}>{post.title}</h3>
                 <p key={"postDesckey" + index}>{post.description}</p>
+                <>
+                <p className="m-0 text-end">{post.user_name}</p>
+                <p className="m-0 text-end">{new Date(post.post_date).toDateString()}</p>
+                </>
               </Container>
             );
           })}
