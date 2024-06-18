@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 // // import axios, { AxiosError } from "axios";
 // import * as formik from "formik";
 // import * as yup from "yup";
 
-// import { useSelector } from "react-redux";
-// import { selectUserData } from "../../features/users/userSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUserData } from "../../features/users/userSlice";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 interface postPreview {
@@ -20,7 +20,8 @@ interface postPreview {
 
 export default function BlogMain() {
   const [posts, setPosts] = useState<Array<postPreview> | undefined>(undefined);
-
+  // get user data if logged in
+  const userData = useSelector(selectUserData);
   useEffect(() => {
     axios
       .get("http://localhost:3060/api/blog")
@@ -31,43 +32,34 @@ export default function BlogMain() {
       .catch((e) => {
         console.log(e);
       });
+
   }, []);
-  // get user data from redux
-  // const userData = useSelector(selectUserData);
-  // console.log("user data from redux",userData);
-  // validation schema
-  const navigate = useNavigate();
+
   return (
     <Container fluid="sm" className="shadow my-5 p-4 s">
       <Row className="justify-content-center">
         <Col md={6}>
           <h2 className="mb-4">Posts</h2>
-          <Link className="btn btn-info my-4" to={"create"}>
-            Create New Post{" "}
-          </Link>
-          <Button
-            onClick={async () => {
-              try {
-                const resp = await axios.post(
-                  "http://localhost:3060/api/blog/create"
-                );
-                console.log("response for 'post' post", resp);
-              } catch (e) {
-                navigate("/signin");
-              }
-            }}
-          >
-            Create generic post
-          </Button>
-
+          {userData.userName ? (
+            <>
+              <Link className="btn btn-info my-4" to={"create"}>
+                Create New Post{" "}
+              </Link>
+              
+            </>
+          ) : null}
+          
           <p className="alert alert-light">
             The purpose of the blog is to have a reminder and a quick reference
             on some of the things that I worked on.
           </p>
           {posts?.map((post, index) => {
             return (
-              <Container key={"postContainer" + index} className="bg-light rounded ">
-                <h3 key={post.title+index}>{post.title}</h3>
+              <Container
+                key={"postContainer" + index}
+                className="bg-light rounded "
+              >
+                <h3 key={post.title + index}>{post.title}</h3>
                 <p key={"postDesckey" + index}>{post.description}</p>
               </Container>
             );
