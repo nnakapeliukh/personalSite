@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 
 import axios, { AxiosError } from "axios";
 import * as formik from "formik";
@@ -38,10 +38,9 @@ export default function BlogpostCreate() {
             validationSchema={schema}
             initialValues={{ title: "", description: "", text: "" }}
             onSubmit={async (data) => {
-              console.log(data);
               try {
                 const response = await axios.post(
-                  "http://localhost:3060/api/blogposts",
+                  "http://localhost:3060/api/blog/create",
                   data
                 );
                 console.log("success", response);
@@ -51,6 +50,7 @@ export default function BlogpostCreate() {
                 const error = e as AxiosError;
                 const errorMessage = error.response?.data as Array<string>;
                 setErrorMessage(errorMessage);
+                console.log(e);
               }
             }}
           >
@@ -101,7 +101,8 @@ export default function BlogpostCreate() {
                   <Form.Label>Text</Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control
-                      type="text"
+                      as="textarea"
+                      rows={10}
                       placeholder="Post Text"
                       name="text"
                       value={values.text}
@@ -113,6 +114,7 @@ export default function BlogpostCreate() {
                     </Form.Control.Feedback>
                   </InputGroup>
                 </Form.Group>
+                <Button type="submit">Create new post</Button>
               </Form>
             )}
           </Formik>
