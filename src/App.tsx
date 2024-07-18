@@ -13,6 +13,7 @@ import Terms from "./components/Auth/terms";
 import Cabinet from "./components/Cabinet/cabinet"
 import BlogMain from "./components/Blogpost/blogMain";
 import BlogpostCreate from "./components/Blogpost/blogpostCreate";
+import BlogPage from "./components/Blogpost/blogPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="terms" element={<Terms />} />
         <Route path="cabinet" element={<Cabinet />} />
         <Route path="blog" element={<BlogMain />} />
+        <Route path="blog/post" element={<BlogPage />} />
         <Route path="blog/create" element={<BlogpostCreate />} />
         <Route path="*" element={<NoPage />} />
       </Route>

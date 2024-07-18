@@ -61,7 +61,7 @@ export default function BlogMain() {
                   className="link-dark link-underline link-underline-opacity-0 
                   link-underline-opacity-75-hover"
                   to="post"
-                  state={post.id}
+                  state={{id: post.id}}
                 >
                   <h3 key={post.title + index}>{post.title}</h3>
                 </Link>

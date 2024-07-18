@@ -7,6 +7,7 @@ import * as yup from "yup";
 
 import { useSelector } from "react-redux";
 import { selectUserData } from "../../features/users/userSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function BlogpostCreate() {
   // get user data from redux
@@ -22,6 +23,9 @@ export default function BlogpostCreate() {
   const { Formik } = formik;
 
   const [errorMessage, setErrorMessage] = useState([""]);
+
+
+  const navigate = useNavigate();
 
   return (
     <Container fluid="sm" className="shadow my-5 p-4 s">
@@ -44,7 +48,7 @@ export default function BlogpostCreate() {
                   data
                 );
                 console.log("success", response);
-
+                navigate("/blog")
                 setErrorMessage([""]);
               } catch (e) {
                 const error = e as AxiosError;
